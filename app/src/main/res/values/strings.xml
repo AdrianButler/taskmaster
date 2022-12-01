@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TaskMaster</string>
+    <string name="helloWorld">Hello Adrian!</string>
+    <string name="newGreeting">I AM ADRIAN</string>
+</resources>

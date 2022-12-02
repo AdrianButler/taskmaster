@@ -22,23 +22,25 @@ public class SettingsActivity extends AppCompatActivity {
         assignSaveButtonHandler();
     }
 
-    public void assignSaveButtonHandler()
+    private void assignSaveButtonHandler()
     {
-        // shared preferences is read only by default
-
-        SharedPreferences.Editor preferenceEditor = preferences.edit();
-
         Button saveButton = findViewById(R.id.SettingsSaveButton);
 
-        EditText usernameText = findViewById(R.id.SettingsUsernameEditText);
-
-        saveButton.setOnClickListener(view ->
+        saveButton.setOnClickListener(view -> // save username and display a toast
         {
-            preferenceEditor.putString(USERNAME_TAG, usernameText.getText().toString());
-            preferenceEditor.apply();
+            EditText usernameText = findViewById(R.id.SettingsUsernameEditText);
+            saveUsername(usernameText.getText().toString());
 
             Toast.makeText(this, "Username Saved!", Toast.LENGTH_SHORT).show();
         });
 
+    }
+
+    private void saveUsername(String username)
+    {
+        SharedPreferences.Editor preferenceEditor = preferences.edit();
+
+        preferenceEditor.putString(USERNAME_TAG, username);
+        preferenceEditor.apply();
     }
 }

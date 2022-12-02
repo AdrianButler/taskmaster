@@ -18,4 +18,5 @@
     <string name="mow_lawn">Mow Lawn</string>
     <string name="clean_room">Clean Room</string>
     <string name="vacuum">Vacuum</string>
+    <string name="settings_button">Settings Button</string>
 </resources>

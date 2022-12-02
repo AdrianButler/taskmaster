@@ -13,14 +13,26 @@
         android:theme="@style/Theme.TaskMaster"
         tools:targetApi="31">
         <activity
-            android:name=".OrderForm"
+            android:name=".AllTasksActivity"
+            android:parentActivityName="com.adrianbutler.taskmaster.HomeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.adrianbutler.taskmaster.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".AddTaskActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,5 +45,6 @@
                 android:value="" />
         </activity>
     </application>
+
 
 </manifest>

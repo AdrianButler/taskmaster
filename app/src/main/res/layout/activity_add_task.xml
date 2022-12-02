@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/AddTask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTaskActivity">
+
+    <TextView
+        android:id="@+id/AddTaskHeaderText"
+        android:layout_width="259dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/add_a_task"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AddTaskTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="252dp"
+        android:labelFor="@id/AddTaskTitleTextEdit"
+        android:text="@string/task_title"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskHeaderText" />
+
+    <EditText
+        android:id="@+id/AddTaskTitleTextEdit"
+        android:layout_width="204dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="63dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:text="@string/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/AddTaskTitleLabel"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskHeaderText" />
+
+    <TextView
+        android:id="@+id/addTaskInfoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="200dp"
+        android:labelFor="@id/AddTaskTaskInfoTextEdit"
+        android:text="@string/task_info"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskHeaderText" />
+
+    <EditText
+
+        android:id="@+id/AddTaskTaskInfoTextEdit"
+        android:layout_width="319dp"
+        android:layout_height="238dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="46dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addTaskInfoLabel" />
+
+    <Button
+        android:id="@+id/AddTaskSubmitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="172dp"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskTaskInfoTextEdit" />
+
+    <TextView
+        android:id="@+id/AddTaskCountText"
+        android:layout_width="69dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/count"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AddTaskSubmitButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

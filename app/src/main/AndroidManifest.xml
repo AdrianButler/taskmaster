@@ -13,13 +13,19 @@
         android:theme="@style/Theme.TaskMaster"
         tools:targetApi="31">
         <activity
-            android:name=".AllTasksActivity"
-            android:parentActivityName="com.adrianbutler.taskmaster.HomeActivity"
+            android:name=".TaskDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value=""
-                />
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AllTasksActivity"
+            android:exported="false"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.adrianbutler.taskmaster.HomeActivity" />
@@ -45,6 +51,5 @@
                 android:value="" />
         </activity>
     </application>
-
 
 </manifest>

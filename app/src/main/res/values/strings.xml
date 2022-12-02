@@ -19,4 +19,5 @@
     <string name="clean_room">Clean Room</string>
     <string name="vacuum">Vacuum</string>
     <string name="settings_button">Settings Button</string>
+    <string name="enter_username_here">Enter Username Here</string>
 </resources>

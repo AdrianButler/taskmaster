@@ -36,18 +36,18 @@
 
     <EditText
         android:id="@+id/SettingsUsernameEditText"
-        android:layout_width="407dp"
-        android:layout_height="48dp"
+        android:layout_width="371dp"
+        android:layout_height="43dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/username"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SettingsUsernameLabel"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/SettingsUsernameLabel" />
 
     <Button
         android:id="@+id/SettingsSaveButton"

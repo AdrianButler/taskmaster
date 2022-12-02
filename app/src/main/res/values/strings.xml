@@ -12,4 +12,11 @@
     <string name="placeholder">Placeholder</string>
     <string name="task_master">Task Master</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut consequuntur corporis cupiditate dicta dolor eaque eligendi est et eveniet facere, laboriosam, minima neque obcaecati officiis pariatur rerum similique sint sit tempora temporibus ullam. Blanditiis cum excepturi, facere laboriosam laudantium magnam qui reiciendis, rerum sapiente sint temporibus tenetur ullam unde. A animi dolores explicabo incidunt, nemo porro tempore! Aliquam aperiam earum eligendi enim fugit id ipsam laboriosam magni maxime nesciunt nostrum omnis, quae quidem quis quod temporibus tenetur voluptatem. Atque deserunt repellendus sapiente sed similique sunt voluptas! Aut blanditiis dignissimos distinctio eos expedita maiores nostrum perferendis quasi quos sint? Alias, architecto assumenda blanditiis, consequatur culpa cupiditate excepturi minus nam nesciunt numquam perspiciatis placeat, quaerat quasi quos rerum soluta tempore unde vero? Doloribus, nesciunt provident? Aliquid animi autem culpa dolorum earum facere fuga id in ipsum iusto libero molestiae nesciunt officiis repellat saepe sed tenetur, vitae voluptas. Blanditiis quibusdam sed sint. Aliquid, architecto assumenda dignissimos distinctio, explicabo fuga harum magnam maiores minima mollitia nisi nulla pariatur quasi sapiente sed? Corporis delectus eveniet excepturi laudantium magni obcaecati rem, sunt tenetur. A atque itaque nemo! Aliquam assumenda beatae consectetur corporis delectus eos ex illum inventore modi placeat repellendus, sapiente sequi similique? Quo!</string>
+    <string name="settings">Settings</string>
+    <string name="username">Username:</string>
+    <string name="save">Save</string>
+    <string name="mow_lawn">Mow Lawn</string>
+    <string name="clean_room">Clean Room</string>
+    <string name="vacuum">Vacuum</string>
+    <string name="settings_button">Settings Button</string>
 </resources>

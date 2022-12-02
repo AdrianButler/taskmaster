@@ -29,7 +29,7 @@
         app:layout_constraintStart_toEndOf="@+id/HomeActivityAddTaskButton" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/HomePlaceholderImage"
         android:layout_width="254dp"
         android:layout_height="360dp"
         android:layout_marginStart="78dp"
@@ -44,7 +44,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/HomeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -56,5 +56,52 @@
         app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/HomeVacuumTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/vacuum"
+        app:layout_constraintEnd_toStartOf="@+id/HomeMowLawnTaskButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
+
+    <Button
+        android:id="@+id/HomeMowLawnTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/mow_lawn"
+        app:layout_constraintEnd_toStartOf="@+id/HomeCleanRoomTaskButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/HomeVacuumTaskButton"
+        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
+
+    <Button
+        android:id="@+id/HomeCleanRoomTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/clean_room"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/HomeMowLawnTaskButton"
+        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
+
+    <ImageButton
+        android:id="@+id/HomeActivitySettingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/settings_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/HomeLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/listChoiceIndicatorSingle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

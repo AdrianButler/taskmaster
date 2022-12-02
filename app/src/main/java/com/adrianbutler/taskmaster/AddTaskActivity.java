@@ -54,6 +54,7 @@ public class AddTaskActivity extends AppCompatActivity {
             taskCount.setText(count);
             System.out.println(count);
         });
+
     }
 
 

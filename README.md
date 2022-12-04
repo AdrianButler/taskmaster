@@ -11,8 +11,20 @@
   - Added placeholder images
   - Added navigation buttons to home page
 
+- 12/02/2022
+  - Added task details page
+  - Added event handlers for task details page
+  - Added espresso tests for task details page and settings page
+  - Added settings page
+  - Added event handlers for settings page
+  - Added tasks on home page
+
 ## Previews
 
 ### Home Page
 
 ![Screenshot of Home Page](screenshots/homepage.png)
+
+### Task Details Page
+
+![Screenshot of Task Details Page](screenshots/task-details.png)

@@ -1,4 +1,4 @@
-package com.adrianbutler.taskmaster;
+package com.adrianbutler.taskmaster.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
+
+import com.adrianbutler.taskmaster.R;
 
 public class AddTaskActivity extends AppCompatActivity {
 

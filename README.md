@@ -19,6 +19,11 @@
   - Added event handlers for settings page
   - Added tasks on home page
 
+- 12/05/2022
+  - Added Task model
+  - Added Recycler View to homepage
+  - Removed individual task buttons from homepage
+
 ## Previews
 
 ### Home Page
@@ -27,4 +32,8 @@
 
 ### Task Details Page
 
-![Screenshot of Task Details Page](screenshots/task-details.png)
+![Screenshot of Task Details Page](screenshots/task-detail.png)
+
+### Recycler View
+
+![Screenshot of Recycler View](screenshots/recycler-view.png)

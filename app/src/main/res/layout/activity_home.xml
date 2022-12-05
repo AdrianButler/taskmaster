@@ -4,44 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".activities.HomeActivity">
 
     <Button
         android:id="@+id/HomeActivityAddTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/add_task"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/HomeActivityAllTasksButton"
-        android:layout_width="122dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/all_tasks"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/HomeActivityAddTaskButton" />
-
-    <ImageView
-        android:id="@+id/HomePlaceholderImage"
-        android:layout_width="254dp"
-        android:layout_height="360dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="207dp"
-        android:contentDescription="@string/placeholder"
-        app:layout_constraintBottom_toTopOf="@+id/HomeActivityAllTasksButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/HomeNameTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/HomeLabel" />
 
     <TextView
         android:id="@+id/HomeLabel"
@@ -62,47 +37,15 @@
         android:layout_width="180dp"
         android:layout_height="35dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="309dp"
+        android:layout_marginBottom="15dp"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/HomeActivityTaskRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
-
-    <Button
-        android:id="@+id/HomeVacuumTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="@string/vacuum"
-        app:layout_constraintEnd_toStartOf="@+id/HomeMowLawnTaskButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
-
-    <Button
-        android:id="@+id/HomeMowLawnTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="@string/mow_lawn"
-        app:layout_constraintEnd_toStartOf="@+id/HomeCleanRoomTaskButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/HomeVacuumTaskButton"
-        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
-
-    <Button
-        android:id="@+id/HomeCleanRoomTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="@string/clean_room"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/HomeMowLawnTaskButton"
-        app:layout_constraintTop_toBottomOf="@+id/HomePlaceholderImage" />
+        app:layout_constraintTop_toBottomOf="@+id/HomeActivityAddTaskButton" />
 
     <ImageButton
         android:id="@+id/HomeActivitySettingsButton"
@@ -111,10 +54,25 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
-        android:contentDescription="@string/settings_button"
+        android:contentDescription="@string/settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/HomeLabel"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?android:attr/listChoiceIndicatorSingle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/HomeActivityTaskRecyclerView"
+        android:layout_width="350dp"
+        android:layout_height="511dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="16dp"
+        android:minHeight="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HomeNameTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

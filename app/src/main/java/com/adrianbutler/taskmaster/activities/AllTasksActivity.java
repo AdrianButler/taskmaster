@@ -1,9 +1,10 @@
-package com.adrianbutler.taskmaster;
+package com.adrianbutler.taskmaster.activities;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.adrianbutler.taskmaster.R;
 
 public class AllTasksActivity extends AppCompatActivity {
 

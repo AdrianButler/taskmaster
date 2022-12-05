@@ -18,6 +18,8 @@
     <string name="mow_lawn">Mow Lawn</string>
     <string name="clean_room">Clean Room</string>
     <string name="vacuum">Vacuum</string>
-    <string name="settings_button">Settings Button</string>
     <string name="enter_username_here">Enter Username Here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textview">TextView</string>
 </resources>

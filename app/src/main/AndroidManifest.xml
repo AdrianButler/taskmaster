@@ -13,39 +13,39 @@
         android:theme="@style/Theme.TaskMaster"
         tools:targetApi="31">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TaskDetailActivity"
+            android:name=".activities.TaskDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AllTasksActivity"
+            android:name=".activities.AllTasksActivity"
             android:exported="false"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".activities.HomeActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.adrianbutler.taskmaster.HomeActivity" />
+                android:value="com.adrianbutler.taskmaster.activities.HomeActivity" />
         </activity>
         <activity
-            android:name=".AddTaskActivity"
+            android:name=".activities.AddTaskActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

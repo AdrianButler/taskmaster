@@ -40,7 +40,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 	{
 		String taskTitle = tasks.get(position).getTitle();
 		String taskBody = tasks.get(position).getBody();
-
+		String taskState = tasks.get(position).getState().toString();
 
 		View taskItemView = holder.itemView;
 		taskItemView.setOnClickListener(view ->
@@ -48,6 +48,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 			Intent goToTaskIntent = new Intent(callingActivity, TaskDetailActivity.class);
 			goToTaskIntent.putExtra(TaskDetailActivity.TASK_TITLE_EXTRA_TAG, taskTitle);
 			goToTaskIntent.putExtra(TaskDetailActivity.TASK_BODY_EXTRA_TAG, taskBody);
+			goToTaskIntent.putExtra(TaskDetailActivity.TASK_STATUS_EXTRA_TAG, taskState);
 			callingActivity.startActivity(goToTaskIntent);
 		});
 

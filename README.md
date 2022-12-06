@@ -24,6 +24,11 @@
   - Added Recycler View to homepage
   - Removed individual task buttons from homepage
 
+- 12/06/2022
+  - Added room database
+  - Added task dao
+  - Added status to task creation
+
 ## Previews
 
 ### Home Page

@@ -12,6 +12,7 @@ public class TaskDetailActivity extends AppCompatActivity
 {
 	public static final String TASK_TITLE_EXTRA_TAG = "taskTitle";
 	public static final String TASK_BODY_EXTRA_TAG = "taskBody";
+	public static final String TASK_STATUS_EXTRA_TAG = "taskStatus";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -30,13 +31,18 @@ public class TaskDetailActivity extends AppCompatActivity
 	private void consumeTitleExtra()
 	{
 		Intent callingIntent = getIntent();
+
 		String taskTitle = callingIntent.getStringExtra(TASK_TITLE_EXTRA_TAG);
 		String taskBody = callingIntent.getStringExtra(TASK_BODY_EXTRA_TAG);
+		String taskStatus = callingIntent.getStringExtra(TASK_STATUS_EXTRA_TAG);
 
 		TextView titleTextView = findViewById(R.id.TaskDetailTitleText);
 		titleTextView.setText(taskTitle);
 
 		TextView bodyTextView = findViewById(R.id.TaskDetailDescriptionText);
 		bodyTextView.setText(taskBody);
+
+		TextView statusTextView = findViewById(R.id.TaskDetailStatusTextView);
+		statusTextView.setText(taskStatus);
 	}
 }

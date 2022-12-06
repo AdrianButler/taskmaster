@@ -38,7 +38,7 @@
     <EditText
         android:id="@+id/AddTaskTitleTextEdit"
         android:layout_width="204dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="63dp"
@@ -66,16 +66,17 @@
     <EditText
 
         android:id="@+id/AddTaskTaskInfoTextEdit"
-        android:layout_width="319dp"
-        android:layout_height="238dp"
+        android:layout_width="315dp"
+        android:layout_height="161dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="46dp"
         android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addTaskInfoLabel" />
 
@@ -84,24 +85,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="108dp"
         android:layout_marginEnd="172dp"
         android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskTaskInfoTextEdit" />
 
-    <TextView
-        android:id="@+id/AddTaskCountText"
-        android:layout_width="69dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="36dp"
-        android:text="@string/count"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Spinner
+        android:id="@+id/AddTaskActivitySelectStateDropdown"
+        android:layout_width="386dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="13dp"
+        android:contentDescription="@string/select_state"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/AddTaskSubmitButton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskTaskInfoTextEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

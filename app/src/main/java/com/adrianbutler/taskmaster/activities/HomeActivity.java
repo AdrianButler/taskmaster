@@ -11,16 +11,19 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.adrianbutler.taskmaster.R;
 import com.adrianbutler.taskmaster.adapters.TaskRecyclerViewAdapter;
+import com.adrianbutler.taskmaster.database.TaskMasterDatabase;
 import com.adrianbutler.taskmaster.models.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
 {
+	TaskMasterDatabase taskMasterDatabase;
+	public static final String DATABASE_NAME = "task_master_db";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +31,7 @@ public class HomeActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 
+		setupDatabase();
 		setupRecyclerView();
 		assignButtonHandlers();
 	}
@@ -40,17 +44,27 @@ public class HomeActivity extends AppCompatActivity
 		setupGreeting();
 	}
 
+	private void setupDatabase()
+	{
+		taskMasterDatabase = Room.databaseBuilder(getApplicationContext(),
+						TaskMasterDatabase.class,
+						DATABASE_NAME)
+				.fallbackToDestructiveMigration()
+				.allowMainThreadQueries()
+				.build();
+	}
+
 	private void setupRecyclerView()
 	{
-		List<Task> tasks = new ArrayList<>();
+		List<Task> tasks = taskMasterDatabase.taskDao().findAllTasks();
 
-		tasks.add(new Task("Vacuum", "Vacuum the living room and the bedroom"));
-		tasks.add(new Task("Cook", "Cook lunch"));
-		tasks.add(new Task("Homework", "Finish code fellows homework"));
-		tasks.add(new Task("Wash Car", "Use hose and rag to wash off car"));
-		tasks.add(new Task("File taxes", "File taxes before the end of March"));
-		tasks.add(new Task("Bathe Dog", "The dog stinks. Give him a bath soon."));
-		tasks.add(new Task("Clean shower", "Scrub out the shower with cleaner"));
+		tasks.add(new Task("Vacuum", "Vacuum the living room and the bedroom", Task.State.ASSIGNED));
+		tasks.add(new Task("Cook", "Cook lunch", Task.State.ASSIGNED));
+		tasks.add(new Task("Homework", "Finish code fellows homework", Task.State.ASSIGNED));
+		tasks.add(new Task("Wash Car", "Use hose and rag to wash off car", Task.State.ASSIGNED));
+		tasks.add(new Task("File taxes", "File taxes before the end of March", Task.State.ASSIGNED));
+		tasks.add(new Task("Bathe Dog", "The dog stinks. Give him a bath soon.", Task.State.ASSIGNED));
+		tasks.add(new Task("Clean shower", "Scrub out the shower with cleaner", Task.State.ASSIGNED));
 
 		RecyclerView recyclerView = findViewById(R.id.HomeActivityTaskRecyclerView);
 

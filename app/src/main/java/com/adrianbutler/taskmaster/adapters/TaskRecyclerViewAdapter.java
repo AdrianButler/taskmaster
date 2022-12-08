@@ -12,9 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adrianbutler.taskmaster.R;
 import com.adrianbutler.taskmaster.activities.TaskDetailActivity;
-import com.adrianbutler.taskmaster.models.Task;
+import com.amplifyframework.datastore.generated.model.Task;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerViewAdapter.TaskViewHolder>
 {
@@ -41,6 +45,13 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 		String taskTitle = tasks.get(position).getTitle();
 		String taskBody = tasks.get(position).getBody();
 		String taskState = tasks.get(position).getState().toString();
+
+		DateFormat dateCreatedIso8601InputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
+		dateCreatedIso8601InputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+		System.out.println(taskTitle);
+		System.out.println(taskBody);
+		System.out.println(taskState);
 
 		View taskItemView = holder.itemView;
 		taskItemView.setOnClickListener(view ->

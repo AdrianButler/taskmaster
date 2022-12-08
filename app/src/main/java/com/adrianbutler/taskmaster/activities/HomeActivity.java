@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -14,22 +15,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adrianbutler.taskmaster.R;
 import com.adrianbutler.taskmaster.adapters.TaskRecyclerViewAdapter;
-import com.adrianbutler.taskmaster.models.Task;
+import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
 {
-	public static final String DATABASE_NAME = "task_master_db";
+	public static final String TAG = "HomeActivity";
+	private List<Task> tasks = new ArrayList<>();
+	private TaskRecyclerViewAdapter taskRecyclerViewAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-
-		setupDatabase();
 		setupRecyclerView();
 		assignButtonHandlers();
 	}
@@ -38,33 +41,34 @@ public class HomeActivity extends AppCompatActivity
 	protected void onResume()
 	{
 		super.onResume();
+		Amplify.API.query(
+				ModelQuery.list(Task.class),
+				success ->
+				{
+					Log.i(TAG, "Queried Tasks successfully");
+					tasks.removeAll(tasks);
+					for (Task taskFromDB : success.getData())
+					{
+						tasks.add(taskFromDB);
+					}
+					runOnUiThread(() -> taskRecyclerViewAdapter.notifyDataSetChanged());
+				},
+				failure ->
+				{
+					Log.e(TAG, "Failed to query tasks");
+				});
 
 		setupGreeting();
 	}
 
-	private void setupDatabase()
-	{
-
-	}
-
 	private void setupRecyclerView()
 	{
-		List<Task> tasks = new ArrayList<>();
-
-		tasks.add(new Task("Vacuum", "Vacuum the living room and the bedroom", Task.State.ASSIGNED));
-		tasks.add(new Task("Cook", "Cook lunch", Task.State.ASSIGNED));
-		tasks.add(new Task("Homework", "Finish code fellows homework", Task.State.ASSIGNED));
-		tasks.add(new Task("Wash Car", "Use hose and rag to wash off car", Task.State.ASSIGNED));
-		tasks.add(new Task("File taxes", "File taxes before the end of March", Task.State.ASSIGNED));
-		tasks.add(new Task("Bathe Dog", "The dog stinks. Give him a bath soon.", Task.State.ASSIGNED));
-		tasks.add(new Task("Clean shower", "Scrub out the shower with cleaner", Task.State.ASSIGNED));
-
 		RecyclerView recyclerView = findViewById(R.id.HomeActivityTaskRecyclerView);
 
 		RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 		recyclerView.setLayoutManager(layoutManager);
 
-		TaskRecyclerViewAdapter taskRecyclerViewAdapter = new TaskRecyclerViewAdapter(tasks, this);
+		taskRecyclerViewAdapter = new TaskRecyclerViewAdapter(tasks, this);
 		recyclerView.setAdapter(taskRecyclerViewAdapter);
 	}
 

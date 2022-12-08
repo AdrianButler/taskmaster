@@ -29,6 +29,11 @@
   - Added task dao
   - Added status to task creation
 
+- 12/08/2022
+  - Removed room database
+  - Added amplify database
+  - Added queries and mutations for amplify database
+
 ## Previews
 
 ### Home Page

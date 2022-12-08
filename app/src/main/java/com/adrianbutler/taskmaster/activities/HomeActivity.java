@@ -11,18 +11,16 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import com.adrianbutler.taskmaster.R;
 import com.adrianbutler.taskmaster.adapters.TaskRecyclerViewAdapter;
-import com.adrianbutler.taskmaster.database.TaskMasterDatabase;
 import com.adrianbutler.taskmaster.models.Task;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
 {
-	TaskMasterDatabase taskMasterDatabase;
 	public static final String DATABASE_NAME = "task_master_db";
 
 	@Override
@@ -46,17 +44,12 @@ public class HomeActivity extends AppCompatActivity
 
 	private void setupDatabase()
 	{
-		taskMasterDatabase = Room.databaseBuilder(getApplicationContext(),
-						TaskMasterDatabase.class,
-						DATABASE_NAME)
-				.fallbackToDestructiveMigration()
-				.allowMainThreadQueries()
-				.build();
+
 	}
 
 	private void setupRecyclerView()
 	{
-		List<Task> tasks = taskMasterDatabase.taskDao().findAllTasks();
+		List<Task> tasks = new ArrayList<>();
 
 		tasks.add(new Task("Vacuum", "Vacuum the living room and the bedroom", Task.State.ASSIGNED));
 		tasks.add(new Task("Cook", "Cook lunch", Task.State.ASSIGNED));

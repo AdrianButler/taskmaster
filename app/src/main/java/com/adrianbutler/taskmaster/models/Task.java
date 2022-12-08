@@ -1,15 +1,11 @@
 package com.adrianbutler.taskmaster.models;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
 public class Task
 {
-	@PrimaryKey(autoGenerate = true)
 	public Long id;
 
 	private Date dateCreated;

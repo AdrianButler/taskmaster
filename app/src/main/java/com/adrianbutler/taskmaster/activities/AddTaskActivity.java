@@ -11,26 +11,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.room.Room;
 
 import com.adrianbutler.taskmaster.R;
-import com.adrianbutler.taskmaster.database.TaskMasterDatabase;
 import com.adrianbutler.taskmaster.models.Task;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-    TaskMasterDatabase taskMasterDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
-
-        taskMasterDatabase = Room.databaseBuilder(getApplicationContext(),
-                        TaskMasterDatabase.class,
-                        HomeActivity.DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .allowMainThreadQueries()
-                .build();
 
         assignButtonHandler();
         setupStateDropdown();
@@ -51,7 +42,6 @@ public class AddTaskActivity extends AppCompatActivity {
                     Task.State.fromString(stateDropdown.getSelectedItem().toString())
             );
 
-            taskMasterDatabase.taskDao().insertATask(task);
 
             TextView submittedTextView = new TextView(this);
             submittedTextView.setText(R.string.submitted);

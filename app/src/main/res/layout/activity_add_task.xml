@@ -55,8 +55,8 @@
         android:id="@+id/addTaskInfoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="148dp"
         android:labelFor="@id/AddTaskTaskInfoTextEdit"
         android:text="@string/task_info"
         android:textSize="24sp"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="172dp"
         android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,4 +104,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskTaskInfoTextEdit" />
+
+    <Spinner
+        android:id="@+id/AddTaskActivitySelectTeamDropdown"
+        android:layout_width="385dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskActivitySelectStateDropdown" />
 </androidx.constraintlayout.widget.ConstraintLayout>

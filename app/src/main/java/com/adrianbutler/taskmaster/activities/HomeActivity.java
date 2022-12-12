@@ -47,9 +47,16 @@ public class HomeActivity extends AppCompatActivity
 				{
 					Log.i(TAG, "Queried Tasks successfully");
 					tasks.removeAll(tasks);
+
+					SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+					String teamName = preferences.getString(SettingsActivity.TEAM_TAG, "");
+
 					for (Task taskFromDB : success.getData())
 					{
-						tasks.add(taskFromDB);
+						if (taskFromDB.getTeam().getName().equals(teamName))
+						{
+							tasks.add(taskFromDB);
+						}
 					}
 					runOnUiThread(() -> taskRecyclerViewAdapter.notifyDataSetChanged());
 				},

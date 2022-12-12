@@ -1,12 +1,18 @@
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-
 type Task @model @auth(rules: [{allow: public}]) {
     id: ID!
+    teamID: ID! @index(name: "byTeam", sortKeyFields: ["title"])
     title: String!
     state: TaskEnum!
     dateCreated: AWSDateTime!
     body: String
+    team: Team @belongsTo(fields: ["teamID"])
 }
+
+type Team @model @auth(rules: [{allow: public}]) {
+     id: ID!
+     name: String!
+     tasks: [Task] @hasMany(indexName: "byTeam", fields: ["id"])
+ }
 
 enum TaskEnum {
     New
@@ -14,5 +20,6 @@ enum TaskEnum {
     In_Progress
     Complete
 }
+
 
 

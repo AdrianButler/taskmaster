@@ -33,6 +33,11 @@
   - Removed room database
   - Added amplify database
   - Added queries and mutations for amplify database
+  
+- 12/12/2022
+  - Added teams to tasks
+  - Added teams to settings page
+  - You now only see tasks that are assigned to your team
 
 ## Previews
 

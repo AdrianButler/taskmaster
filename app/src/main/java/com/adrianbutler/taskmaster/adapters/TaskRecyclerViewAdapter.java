@@ -49,10 +49,6 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
 		DateFormat dateCreatedIso8601InputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
 		dateCreatedIso8601InputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-		System.out.println(taskTitle);
-		System.out.println(taskBody);
-		System.out.println(taskState);
-
 		View taskItemView = holder.itemView;
 		taskItemView.setOnClickListener(view ->
 		{

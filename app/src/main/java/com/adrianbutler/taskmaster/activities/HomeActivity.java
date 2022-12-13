@@ -98,38 +98,8 @@ public class HomeActivity extends AppCompatActivity
 
 			startActivity(goToSettingsActivity);
 		});
-
-		setupIndividualTaskButtons();
 	}
 
-	private void setupIndividualTaskButtons()
-	{
-//		Button vacuumTaskButton = findViewById(R.id.HomeVacuumTaskButton);
-//
-//		Intent goToTaskDetailIntent = new Intent(this, TaskDetailActivity.class);
-//
-//		vacuumTaskButton.setOnClickListener(view ->
-//		{
-//			goToTaskDetailIntent.putExtra(TASK_TITLE_EXTRA_TAG, vacuumTaskButton.getText().toString());
-//			startActivity(goToTaskDetailIntent);
-//		});
-//
-//		Button mowLawnTaskButton = findViewById(R.id.HomeMowLawnTaskButton);
-//
-//		mowLawnTaskButton.setOnClickListener(view ->
-//		{
-//			goToTaskDetailIntent.putExtra(TASK_TITLE_EXTRA_TAG, mowLawnTaskButton.getText().toString());
-//			startActivity(goToTaskDetailIntent);
-//		});
-//
-//		Button cleanRoomTaskButton = findViewById(R.id.HomeCleanRoomTaskButton);
-//
-//		cleanRoomTaskButton.setOnClickListener(view ->
-//		{
-//			goToTaskDetailIntent.putExtra(TASK_TITLE_EXTRA_TAG, cleanRoomTaskButton.getText().toString());
-//			startActivity(goToTaskDetailIntent);
-//		});
-	}
 
 	private void setupGreeting()
 	{

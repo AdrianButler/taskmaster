@@ -47,6 +47,11 @@
   - Added verify account page
   - Removed unnecessary code
 
+- 12/14/2022
+  - Added amplify storage
+  - Added image upload to task creation
+  - Added image to task details page
+
 ## Previews
 
 ### Home Page

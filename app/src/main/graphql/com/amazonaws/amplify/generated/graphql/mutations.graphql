@@ -9,6 +9,7 @@ mutation CreateTask(
     title
     state
     dateCreated
+    s3ImageKey
     body
     team {
       id
@@ -33,6 +34,7 @@ mutation UpdateTask(
     title
     state
     dateCreated
+    s3ImageKey
     body
     team {
       id
@@ -57,6 +59,7 @@ mutation DeleteTask(
     title
     state
     dateCreated
+    s3ImageKey
     body
     team {
       id
@@ -85,6 +88,7 @@ mutation CreateTeam(
         title
         state
         dateCreated
+        s3ImageKey
         body
         createdAt
         updatedAt
@@ -109,6 +113,7 @@ mutation UpdateTeam(
         title
         state
         dateCreated
+        s3ImageKey
         body
         createdAt
         updatedAt
@@ -133,6 +138,7 @@ mutation DeleteTeam(
         title
         state
         dateCreated
+        s3ImageKey
         body
         createdAt
         updatedAt

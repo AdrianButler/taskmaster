@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.adrianbutler.taskmaster.R;
 import com.adrianbutler.taskmaster.adapters.TaskRecyclerViewAdapter;
 import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.auth.AuthUserAttribute;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
@@ -30,12 +31,23 @@ public class HomeActivity extends AppCompatActivity
 	public static final String TAG = "HomeActivity";
 	private List<Task> tasks = new ArrayList<>();
 	private TaskRecyclerViewAdapter taskRecyclerViewAdapter;
+	private AuthUser authUser;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+
+		Amplify.Auth.getCurrentUser(user ->
+		{
+			Log.i(TAG, "Successfully retrieved user");
+			authUser = user;
+		},
+		failure ->
+		{
+			Log.w(TAG, "There is no currently signed in user: " + failure.getMessage());
+		});
 
 		setupRecyclerView();
 		assignButtonHandlers();
@@ -45,7 +57,6 @@ public class HomeActivity extends AppCompatActivity
 	protected void onResume()
 	{
 		super.onResume();
-
 
 		Amplify.Auth.fetchUserAttributes(
 				success ->

@@ -11,12 +11,11 @@
         android:id="@+id/AddTaskHeaderText"
         android:layout_width="259dp"
         android:layout_height="45dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="16dp"
         android:text="@string/add_a_task"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,13 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="252dp"
         android:labelFor="@id/AddTaskTitleTextEdit"
         android:text="@string/task_title"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskHeaderText" />
 
@@ -40,14 +39,14 @@
         android:layout_width="204dp"
         android:layout_height="48dp"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="63dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/AddTaskTitleLabel"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskHeaderText" />
 
@@ -55,8 +54,8 @@
         android:id="@+id/addTaskInfoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="260dp"
         android:labelFor="@id/AddTaskTaskInfoTextEdit"
         android:text="@string/task_info"
         android:textSize="24sp"
@@ -69,14 +68,13 @@
         android:layout_width="315dp"
         android:layout_height="161dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="46dp"
         android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addTaskInfoLabel" />
 
@@ -85,11 +83,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="172dp"
         android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskTaskInfoTextEdit" />
 
@@ -98,10 +96,11 @@
         android:layout_width="386dp"
         android:layout_height="48dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="13dp"
         android:contentDescription="@string/select_state"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskTaskInfoTextEdit" />
 
@@ -110,9 +109,47 @@
         android:layout_width="385dp"
         android:layout_height="52dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="3dp"
+        android:contentDescription="@string/add_an_image"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskActivitySelectStateDropdown" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/AddTaskAddImageButton"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="27dp"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskTitleTextEdit"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:focusable="true"
+        android:contentDescription="@string/add_an_image" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="61dp"
+        android:text="@string/add_an_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskTitleLabel" />
+
+    <ImageView
+        android:id="@+id/AddTaskImagePreview"
+        android:layout_width="157dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="51dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/AddTaskAddImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskTitleTextEdit"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

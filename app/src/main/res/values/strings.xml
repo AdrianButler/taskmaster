@@ -30,4 +30,5 @@
     <string name="verify">Verify</string>
     <string name="verification_code">Verification Code</string>
     <string name="sign_out">Sign Out</string>
+    <string name="add_an_image">Add an image</string>
 </resources>

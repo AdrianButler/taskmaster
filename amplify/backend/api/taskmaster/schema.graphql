@@ -4,6 +4,7 @@ type Task @model @auth(rules: [{allow: public}]) {
     title: String!
     state: TaskEnum!
     dateCreated: AWSDateTime!
+    s3ImageKey: String
     body: String
     team: Team @belongsTo(fields: ["teamID"])
 }

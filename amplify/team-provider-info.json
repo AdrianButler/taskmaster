@@ -17,6 +17,9 @@
       },
       "auth": {
         "taskmaster0065cb4a": {}
+      },
+      "storage": {
+        "s3634f280a": {}
       }
     }
   }

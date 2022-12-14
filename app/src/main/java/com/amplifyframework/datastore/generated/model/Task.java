@@ -1,6 +1,11 @@
 package com.amplifyframework.datastore.generated.model;
 
-import static com.amplifyframework.core.model.query.predicate.QueryField.field;
+import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.core.model.annotations.BelongsTo;
+
+import java.util.List;
+import java.util.UUID;
+import java.util.Objects;
 
 import androidx.core.util.ObjectsCompat;
 
@@ -8,15 +13,12 @@ import com.amplifyframework.core.model.AuthStrategy;
 import com.amplifyframework.core.model.Model;
 import com.amplifyframework.core.model.ModelOperation;
 import com.amplifyframework.core.model.annotations.AuthRule;
-import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.annotations.Index;
 import com.amplifyframework.core.model.annotations.ModelConfig;
 import com.amplifyframework.core.model.annotations.ModelField;
 import com.amplifyframework.core.model.query.predicate.QueryField;
-import com.amplifyframework.core.model.temporal.Temporal;
 
-import java.util.Objects;
-import java.util.UUID;
+import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the Task type in your schema. */
 @SuppressWarnings("all")
@@ -29,12 +31,14 @@ public final class Task implements Model {
   public static final QueryField TITLE = field("Task", "title");
   public static final QueryField STATE = field("Task", "state");
   public static final QueryField DATE_CREATED = field("Task", "dateCreated");
+  public static final QueryField S3_IMAGE_KEY = field("Task", "s3ImageKey");
   public static final QueryField BODY = field("Task", "body");
   public static final QueryField TEAM = field("Task", "teamID");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String title;
   private final @ModelField(targetType="TaskEnum", isRequired = true) TaskEnum state;
   private final @ModelField(targetType="AWSDateTime", isRequired = true) Temporal.DateTime dateCreated;
+  private final @ModelField(targetType="String") String s3ImageKey;
   private final @ModelField(targetType="String") String body;
   private final @ModelField(targetType="Team") @BelongsTo(targetName = "teamID", targetNames = {"teamID"}, type = Team.class) Team team;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
@@ -59,6 +63,10 @@ public final class Task implements Model {
       return dateCreated;
   }
   
+  public String getS3ImageKey() {
+      return s3ImageKey;
+  }
+  
   public String getBody() {
       return body;
   }
@@ -75,11 +83,12 @@ public final class Task implements Model {
       return updatedAt;
   }
   
-  private Task(String id, String title, TaskEnum state, Temporal.DateTime dateCreated, String body, Team team) {
+  private Task(String id, String title, TaskEnum state, Temporal.DateTime dateCreated, String s3ImageKey, String body, Team team) {
     this.id = id;
     this.title = title;
     this.state = state;
     this.dateCreated = dateCreated;
+    this.s3ImageKey = s3ImageKey;
     this.body = body;
     this.team = team;
   }
@@ -96,6 +105,7 @@ public final class Task implements Model {
               ObjectsCompat.equals(getTitle(), task.getTitle()) &&
               ObjectsCompat.equals(getState(), task.getState()) &&
               ObjectsCompat.equals(getDateCreated(), task.getDateCreated()) &&
+              ObjectsCompat.equals(getS3ImageKey(), task.getS3ImageKey()) &&
               ObjectsCompat.equals(getBody(), task.getBody()) &&
               ObjectsCompat.equals(getTeam(), task.getTeam()) &&
               ObjectsCompat.equals(getCreatedAt(), task.getCreatedAt()) &&
@@ -110,6 +120,7 @@ public final class Task implements Model {
       .append(getTitle())
       .append(getState())
       .append(getDateCreated())
+      .append(getS3ImageKey())
       .append(getBody())
       .append(getTeam())
       .append(getCreatedAt())
@@ -126,6 +137,7 @@ public final class Task implements Model {
       .append("title=" + String.valueOf(getTitle()) + ", ")
       .append("state=" + String.valueOf(getState()) + ", ")
       .append("dateCreated=" + String.valueOf(getDateCreated()) + ", ")
+      .append("s3ImageKey=" + String.valueOf(getS3ImageKey()) + ", ")
       .append("body=" + String.valueOf(getBody()) + ", ")
       .append("team=" + String.valueOf(getTeam()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
@@ -153,6 +165,7 @@ public final class Task implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -162,6 +175,7 @@ public final class Task implements Model {
       title,
       state,
       dateCreated,
+      s3ImageKey,
       body,
       team);
   }
@@ -183,6 +197,7 @@ public final class Task implements Model {
   public interface BuildStep {
     Task build();
     BuildStep id(String id);
+    BuildStep s3ImageKey(String s3ImageKey);
     BuildStep body(String body);
     BuildStep team(Team team);
   }
@@ -193,6 +208,7 @@ public final class Task implements Model {
     private String title;
     private TaskEnum state;
     private Temporal.DateTime dateCreated;
+    private String s3ImageKey;
     private String body;
     private Team team;
     @Override
@@ -204,6 +220,7 @@ public final class Task implements Model {
           title,
           state,
           dateCreated,
+          s3ImageKey,
           body,
           team);
     }
@@ -226,6 +243,12 @@ public final class Task implements Model {
      public BuildStep dateCreated(Temporal.DateTime dateCreated) {
         Objects.requireNonNull(dateCreated);
         this.dateCreated = dateCreated;
+        return this;
+    }
+    
+    @Override
+     public BuildStep s3ImageKey(String s3ImageKey) {
+        this.s3ImageKey = s3ImageKey;
         return this;
     }
     
@@ -253,11 +276,12 @@ public final class Task implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String title, TaskEnum state, Temporal.DateTime dateCreated, String body, Team team) {
+    private CopyOfBuilder(String id, String title, TaskEnum state, Temporal.DateTime dateCreated, String s3ImageKey, String body, Team team) {
       super.id(id);
       super.title(title)
         .state(state)
         .dateCreated(dateCreated)
+        .s3ImageKey(s3ImageKey)
         .body(body)
         .team(team);
     }
@@ -275,6 +299,11 @@ public final class Task implements Model {
     @Override
      public CopyOfBuilder dateCreated(Temporal.DateTime dateCreated) {
       return (CopyOfBuilder) super.dateCreated(dateCreated);
+    }
+    
+    @Override
+     public CopyOfBuilder s3ImageKey(String s3ImageKey) {
+      return (CopyOfBuilder) super.s3ImageKey(s3ImageKey);
     }
     
     @Override

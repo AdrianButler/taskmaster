@@ -10,7 +10,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 30,
-              "apiKeyExpirationDate": "2023-01-11T19:08:45.332Z",
+              "apiKeyExpirationDate": "2023-01-13T20:17:42.001Z",
               "description": ""
             }
           },
@@ -45,6 +45,13 @@
           "EMAIL"
         ]
       }
+    }
+  },
+  "storage": {
+    "s3634f280a": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }

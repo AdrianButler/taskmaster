@@ -39,6 +39,14 @@
   - Added teams to settings page
   - You now only see tasks that are assigned to your team
 
+- 12/13/2022
+  - Added authentication with aws cognito
+  - Added sign in page
+  - Added sign up page
+  - Added sign out button
+  - Added verify account page
+  - Removed unnecessary code
+
 ## Previews
 
 ### Home Page

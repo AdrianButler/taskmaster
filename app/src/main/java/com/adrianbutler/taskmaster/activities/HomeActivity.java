@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,11 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.adrianbutler.taskmaster.R;
 import com.adrianbutler.taskmaster.adapters.TaskRecyclerViewAdapter;
 import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.auth.AuthUserAttribute;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class HomeActivity extends AppCompatActivity
 {
@@ -33,6 +36,7 @@ public class HomeActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+
 		setupRecyclerView();
 		assignButtonHandlers();
 	}
@@ -41,6 +45,22 @@ public class HomeActivity extends AppCompatActivity
 	protected void onResume()
 	{
 		super.onResume();
+
+
+		Amplify.Auth.fetchUserAttributes(
+				success ->
+				{
+					Optional<AuthUserAttribute> test = success.stream().filter(value -> value.getKey().getKeyString().equals("email")).findFirst();
+					test.ifPresent(authUserAttribute -> setUpEmailText(authUserAttribute.getValue()));
+					Button signOutButton = findViewById(R.id.HomeActivitySignOutButton);
+					signOutButton.setVisibility(View.VISIBLE);
+				},
+				failure -> {
+					Log.i(TAG, "No email found: " + failure.getMessage());
+					hideSignOutButton();
+				}
+		);
+
 		Amplify.API.query(
 				ModelQuery.list(Task.class),
 				success ->
@@ -66,6 +86,12 @@ public class HomeActivity extends AppCompatActivity
 				});
 
 		setupGreeting();
+	}
+
+	private void setUpEmailText(String email)
+	{
+		TextView emailTextView = findViewById(R.id.HomeEmailTextView);
+		emailTextView.setText(email);
 	}
 
 	private void setupRecyclerView()
@@ -99,37 +125,37 @@ public class HomeActivity extends AppCompatActivity
 			startActivity(goToSettingsActivity);
 		});
 
-		setupIndividualTaskButtons();
+		Button signUpButton = findViewById(R.id.HomeActivitySignUpButton);
+		signUpButton.setOnClickListener(view ->
+		{
+			Intent goToSignUpIntent = new Intent(this, SignUpActivity.class);
+			startActivity(goToSignUpIntent);
+		});
+
+		Button signInButton = findViewById(R.id.HomeActivitySignInButton);
+		signInButton.setOnClickListener(view ->
+		{
+			Intent goToSignInIntent = new Intent(this, SignInActivity.class);
+			startActivity(goToSignInIntent);
+		});
+
+		Button signOutButton = findViewById(R.id.HomeActivitySignOutButton);
+		signOutButton.setOnClickListener(view ->
+		{
+			Amplify.Auth.signOut(signOutResult ->
+			{
+				Log.i(TAG, "Attempting to sign out: " + signOutResult);
+				hideSignOutButton();
+			});
+		});
 	}
 
-	private void setupIndividualTaskButtons()
+	private void hideSignOutButton()
 	{
-//		Button vacuumTaskButton = findViewById(R.id.HomeVacuumTaskButton);
-//
-//		Intent goToTaskDetailIntent = new Intent(this, TaskDetailActivity.class);
-//
-//		vacuumTaskButton.setOnClickListener(view ->
-//		{
-//			goToTaskDetailIntent.putExtra(TASK_TITLE_EXTRA_TAG, vacuumTaskButton.getText().toString());
-//			startActivity(goToTaskDetailIntent);
-//		});
-//
-//		Button mowLawnTaskButton = findViewById(R.id.HomeMowLawnTaskButton);
-//
-//		mowLawnTaskButton.setOnClickListener(view ->
-//		{
-//			goToTaskDetailIntent.putExtra(TASK_TITLE_EXTRA_TAG, mowLawnTaskButton.getText().toString());
-//			startActivity(goToTaskDetailIntent);
-//		});
-//
-//		Button cleanRoomTaskButton = findViewById(R.id.HomeCleanRoomTaskButton);
-//
-//		cleanRoomTaskButton.setOnClickListener(view ->
-//		{
-//			goToTaskDetailIntent.putExtra(TASK_TITLE_EXTRA_TAG, cleanRoomTaskButton.getText().toString());
-//			startActivity(goToTaskDetailIntent);
-//		});
+		Button signOutButton = findViewById(R.id.HomeActivitySignOutButton);
+		runOnUiThread(() -> signOutButton.setVisibility(View.GONE));
 	}
+
 
 	private void setupGreeting()
 	{

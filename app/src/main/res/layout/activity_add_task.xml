@@ -151,5 +151,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/AddTaskAddImageButton"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskTitleTextEdit"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/add_an_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>

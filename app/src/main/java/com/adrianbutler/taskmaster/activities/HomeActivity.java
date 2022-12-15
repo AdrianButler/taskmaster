@@ -29,7 +29,7 @@ import java.util.Optional;
 public class HomeActivity extends AppCompatActivity
 {
 	public static final String TAG = "HomeActivity";
-	private List<Task> tasks = new ArrayList<>();
+	private final List<Task> tasks = new ArrayList<>();
 	private TaskRecyclerViewAdapter taskRecyclerViewAdapter;
 	private AuthUser authUser;
 

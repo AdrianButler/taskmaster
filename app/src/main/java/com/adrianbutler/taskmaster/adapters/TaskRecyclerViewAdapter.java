@@ -22,8 +22,8 @@ import java.util.TimeZone;
 
 public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerViewAdapter.TaskViewHolder>
 {
-	private List<Task> tasks;
-	private Context callingActivity;
+	private final List<Task> tasks;
+	private final Context callingActivity;
 
 	public TaskRecyclerViewAdapter(List<Task> tasks, Context callingActivity)
 	{

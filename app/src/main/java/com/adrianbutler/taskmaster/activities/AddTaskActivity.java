@@ -43,7 +43,7 @@ import java.util.concurrent.ExecutionException;
 public class AddTaskActivity extends AppCompatActivity
 {
 	public final static String TAG = "AddTaskActivity";
-	private CompletableFuture<List<Team>> teamsFuture = new CompletableFuture<>();
+	private final CompletableFuture<List<Team>> teamsFuture = new CompletableFuture<>();
 	private ActivityResultLauncher<Intent> activityResultLauncher;
 	private String s3ImageKey;
 
@@ -53,33 +53,6 @@ public class AddTaskActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_task);
 		activityResultLauncher = getImagePickingActivityResultLauncher();
-//		Team taskMonsters = Team.builder()
-//				.name("TaskMonsters")
-//				.build();
-//		Team cleanFreaks = Team.builder()
-//				.name("CleanFreaks")
-//				.build();
-//		Team scrubbers = Team.builder()
-//				.name("Scrubbers")
-//				.build();
-//
-//		Amplify.API.mutate(
-//				ModelMutation.create(taskMonsters),
-//				success -> {},
-//				failure -> {}
-//		);
-//
-//		Amplify.API.mutate(
-//				ModelMutation.create(cleanFreaks),
-//				success -> {},
-//				failure -> {}
-//		);
-//
-//		Amplify.API.mutate(
-//				ModelMutation.create(scrubbers),
-//				success -> {},
-//				failure -> {}
-//		);
 		setupStateDropdown();
 		getTeamsFromDatabase();
 		assignButtonHandler();
@@ -214,11 +187,6 @@ public class AddTaskActivity extends AppCompatActivity
 					Log.w(TAG, "Failed to upload image: " + failure.getMessage());
 				}
 		);
-	}
-
-	private void saveTask()
-	{
-
 	}
 
 	@SuppressLint("Range")

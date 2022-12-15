@@ -52,6 +52,11 @@
   - Added image upload to task creation
   - Added image to task details page
 
+- 12/15/2022
+  - Built signed aab
+  - Created privacy policy with https://app.termly.io/
+  - Uploaded app to google play store
+
 ## Previews
 
 ### Home Page
